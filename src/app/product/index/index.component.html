@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Angular 13 CRUD Example</h1>
+   
+    <a href="#" routerLink="/product/create/" class="btn btn-success">Agregar producto</a>
+     
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Codigo</th>
+        <th width="220px">Opciones</th>
+      </tr>
+      <tr *ngFor="let product of products">
+        <td>{{ product.product_id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.reference }}</td>
+        <td>
+          <button type="button" (click)="viewProduct(product.product_id)" class="btn btn-primary">Ver</button>
+          <button type="button" (click)="editProduct(product.product_id)" class="btn btn-info">Editar</button>
+          <button type="button" (click)="deleteProduct(product.product_id)" class="btn btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </table>
+ </div>

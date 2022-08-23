@@ -1,0 +1,58 @@
+<div class="container">
+    <h1>Agregar producto</h1>
+   
+    <a href="#" routerLink="/product/index" class="btn btn-primary">Regresar</a>
+         
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+   
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input
+                formControlName="name"
+                id="name"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                <div *ngIf="f['name'].errors && f['name'].errors['required']">El nombre es obligatorio.</div>
+            </div>
+        </div>
+   
+        <div class="form-group">
+            <label for="description">Descripcion:</label>
+            <textarea
+                formControlName="description"
+                id="description"
+                type="text"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['description'].touched && f['description'].invalid" class="alert alert-danger">
+                <div *ngIf="f['description'].errors && f['description'].errors['required']">La descripcion es obligatoria.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="reference">Codigo:</label>
+            <input
+                formControlName="reference"
+                id="reference"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['reference'].touched && f['reference'].invalid" class="alert alert-danger">
+                <div *ngIf="f['reference'].errors && f['reference'].errors['required']">El codigo es obligatorio.</div>
+            </div>
+        </div>
+   
+        <div class="form-group">
+            <label for="price">Precio:</label>
+            <input
+                formControlName="price"
+                id="price"
+                type="number"
+                class="form-control"/>            
+            <div *ngIf="f['price'].touched && f['price'].invalid" class="alert alert-danger">
+                <div *ngIf="f['price'].errors && f['price'].errors['required']">El precio es obligatorio.</div>
+            </div>
+        </div>
+   
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Guardar</button>
+    </form>
+</div>
